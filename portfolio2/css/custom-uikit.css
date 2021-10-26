@@ -1,0 +1,9 @@
+.uk-accordion-title {
+    color: #069;
+    }
+
+.uk-accordion-title::before {
+    color: red;
+    font-weight: bold;
+}  
+
