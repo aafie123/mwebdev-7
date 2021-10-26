@@ -1,9 +1,15 @@
+html { 
+    height: 100%; 
+    margin: 0;
+    padding: 0;
+}
 body {
     background: none; 
-    background-color: #9cf;
+    /* background-color: #9cf; */
     font: 18px/26px "Helvetica Neue",Helvetica,Arial,Sans-Serif;
     color: #111; 
     text-align: center; 
+    height: 100%;
     width: 100%;
     max-width: 760px;
     margin: 0 auto;
@@ -48,7 +54,49 @@ a:link, a:visited {
     color: #059;
     text-decoration: none;
 }
-#modern-webdev, #onepage, #paralax-page, #contact {
+/* #modern-webdev, #onepage, #paralax-page, #contact {
+    width: 90%;
+    min-height: 280px;
+    margin: 80px 0 10px 5%;
+    padding: 5%;
+    box-sizing: border-box;
+    background-color: #36c;
+    border-radius: 10px;
+    text-align: left;
+    color: white;
+    overflow: hidden;
+} */
+#modern-webdev { 
+    background: url(../images/mallorca-1.png) no-repeat fixed 100% 100%; 
+    background-size: cover; 
+    color: #fff; 
+    height: 100%; 
+    width: 100%; 
+    margin-top: -20%;
+}
+#modern-webdev-content { 
+    top: 20%; 
+    position: fixed; 
+    width: 90%;
+    max-width: 592px;
+    min-height: 280px;
+    margin: 80px 5% 10px 5%;
+    padding: 10px 5%;
+    box-sizing: border-box;
+    background-color: #36c;
+    border-radius: 10px;
+    text-align: left;
+    color: white;
+}
+#content { 
+    width: 90%;
+    text-align: justify; 
+    margin: 0 auto; 
+    padding: 10px 2%; 
+    background-color: #fff;
+    color: white;
+}
+#onepage, #paralax-page, #contact {
     width: 90%;
     min-height: 280px;
     margin: 80px 0 10px 5%;
@@ -63,6 +111,10 @@ a:link, a:visited {
 #paralax-page img {
     width: 100%;
 }
+#paralax-page img {
+    width: 100%;
+}
+
 #contact {
     font-size: 18px;
     line-height: 28px;
