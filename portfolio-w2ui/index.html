@@ -8,11 +8,10 @@
     <!-- © Rob van der Galiën, 2019 -->
 
     <link rel="stylesheet" href="css/portfolio.css">
-    <link rel="stylesheet" href="css/uikit.css">
-    <link rel="stylesheet" href="css/custom-uikit.css">
+    <link rel="stylesheet" type="text/css" href="css/w2ui-1.5.css" />
 
-    <script src="js/uikit.js"></script>
-    <script src="js/uikit-icons.js"></script>
+    <script src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/w2ui-1.5.js"></script>
 
     <!-- <script type="text/javascript" src="js/jquery-min.js"></script> -->
     <!-- <script type="text/javascript" src="js/xxx.js"></script> -->
@@ -71,6 +70,9 @@
             </ul>
            
         </div>
+        <div id="grid" style="width: 100%; height: 250px;"></div>
+
+        <div id="myLayout" style="height: 400px"></div>
 
         <footer>
             <div class="copyrights">&copy; Rob van der Galiën - v0.1 - 19-10-2019</div>
@@ -79,6 +81,76 @@
     </div>
 
     <script language="JavaScript">
+     $(function () {
+        $('#grid').w2grid({
+            name: 'grid',
+            header: 'Lijst met namen',
+            columns: [
+                { field: 'fname', text: 'Voornaam', size: '30%' },
+                { field: 'lname', text: 'Achternaam', size: '30%' },
+                { field: 'email', text: 'Email', size: '40%' },
+                { field: 'sdate', text: 'Startdatum', size: '120px' }
+            ],
+            records: [
+                { recid: 1, fname: "Peter", lname: "Jeremia", email: 'peter@mail.com', 
+                    sdate: '2/1/2010' },
+                { recid: 2, fname: "Bruce", lname: "Wilkerson", email: 'bruce@mail.com', 
+                    sdate: '6/1/2010' },
+                { recid: 3, fname: "John", lname: "McAlister", email: 'john@mail.com', 
+                    sdate: '1/16/2010' },
+                { recid: 4, fname: "Ravi", lname: "Zacharies", email: 'ravi@mail.com', 
+                    sdate: '3/13/2007' },
+                { recid: 5, fname: "William", lname: "Dembski", email: 'will@mail.com', 
+                    sdate: '9/30/2011' },
+                { recid: 6, fname: "David", lname: "Peterson", email: 'david@mail.com', 
+                    sdate: '4/5/2010' }
+            ]
+        });
+
+        //html-string
+        let contentStr = '<div>';
+                contentStr += '<h3>Hallo</h3>';
+                contentStr += '<p> de content. hoera!</p>';
+            contentStr += '</div>';
+
+        $(function () {
+       //layout met tekst, html-code en compleet w2ui-component en html-code-string
+        $('#myLayout').w2layout({
+        name: 'myLayout',
+        panels: [
+            { type: 'top', size: 60, content: 'top' },
+            { type: 'left', size: 150, resizable: true, 
+            { content: '<div id="sidebar" style="height: 300px; width: 200px;"></div>},
+            { type: 'right', size: 150, resizable: true, content: contentStr }
+        ]
+    });
+
+
+    $('#sidebar').w2sidebar({
+        name: 'sidebar',
+        nodes: [
+            { id: 'level-1', text: 'Level 1', img: 'icon-folder', expanded: true, group: true,
+              nodes: [ { id: 'level-1-1', text: 'Level 1.1', icon: 'fa fa-home' },
+                       { id: 'level-1-2', text: 'Level 1.2', icon: 'fa fa-star' },
+                       { id: 'level-1-3', text: 'Level 1.3', icon: 'fa fa-star-o' }
+                     ]
+            },
+            { id: 'level-2', text: 'Level 2', img: 'icon-folder', expanded: true, group: true,
+              nodes: [ { id: 'level-2-1', text: 'Level 2.1', img: 'icon-folder', count: 3,
+                           nodes: [
+                           { id: 'level-2-1-1', text: 'Level 2.1.1', icon: 'fa fa-star-o' },
+                           { id: 'level-2-1-2', text: 'Level 2.1.2', icon: 'fa fa-star-o', count: 67 },
+                           { id: 'level-2-1-3', text: 'Level 2.1.3', icon: 'fa fa-star-o' }
+                       ]},
+                       { id: 'level-2-2', text: 'Level 2.2', icon: 'fa fa-star-o' },
+                       { id: 'level-2-3', text: 'Level 2.3', icon: 'fa fa-star-o' }
+                     ]
+            }
+        ]
+    });
+});
+
+    });
     </script>
 </body>
 
